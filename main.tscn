@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://bw2gx8d2k5uwy" path="res://scripts/main.gd" id="1_ycdy4"]
 [ext_resource type="Texture2D" uid="uid://cm2vkqirj4oog" path="res://assets/wheel/center_piece.png" id="2_h2yge"]
 [ext_resource type="PackedScene" uid="uid://ds8qr71q5tvwy" path="res://resources/segment.tscn" id="3_lquwl"]
+[ext_resource type="Texture2D" uid="uid://baxtyg37pq2su" path="res://assets/wheel/wheel_stand.png" id="3_w48qg"]
 [ext_resource type="FontFile" uid="uid://386s7a4jkjck" path="res://assets/fonts/Oi-Regular.ttf" id="4_1bvp3"]
 [ext_resource type="Resource" uid="uid://bghkkfeilvd0" path="res://resources/wheel_segments/+2.tres" id="4_5vw27"]
 [ext_resource type="Resource" uid="uid://bseg1uyk7xajc" path="res://resources/wheel_segments/+3.tres" id="4_7mycd"]
@@ -12,24 +13,44 @@
 [ext_resource type="Resource" uid="uid://brlt3oneyd0il" path="res://resources/wheel_segments/-0.5.tres" id="6_4c57u"]
 [ext_resource type="Resource" uid="uid://hyv4aqqgwb0w" path="res://resources/wheel_segments/+1.tres" id="6_kek77"]
 [ext_resource type="Resource" uid="uid://bjxyhnpejloq4" path="res://resources/wheel_segments/-1.tres" id="7_dg77c"]
-[ext_resource type="Texture2D" uid="uid://dam5nxd84trcd" path="res://assets/wheel/segments/-2.png" id="9_ycdy4"]
+[ext_resource type="Resource" uid="uid://o7a4xv5x35e8" path="res://resources/wheel_segments/-2.tres" id="8_w48qg"]
+[ext_resource type="Texture2D" uid="uid://bw7q5c0p2qlle" path="res://assets/kenney_game-icons/PNG/White/2x/barsHorizontal.png" id="15_d13ii"]
+[ext_resource type="PackedScene" uid="uid://cu7qex42tbv0x" path="res://resources/shop_item.tscn" id="15_vivmo"]
+[ext_resource type="Resource" uid="uid://b24kgp7u6wabu" path="res://resources/wheel_segments/+4.tres" id="16_getpj"]
+[ext_resource type="Resource" uid="uid://cvmy6eqw6e62r" path="res://resources/wheel_segments/+6.tres" id="17_ryguw"]
+[ext_resource type="Resource" uid="uid://duxusce6bky2g" path="res://resources/wheel_segments/+8.tres" id="18_d13ii"]
+[ext_resource type="Resource" uid="uid://sktovyxefk66" path="res://resources/wheel_segments/-3.tres" id="19_1u8w0"]
+[ext_resource type="Resource" uid="uid://l6yh8vvf3atv" path="res://resources/wheel_segments/-4.tres" id="20_0odxb"]
+[ext_resource type="Resource" uid="uid://cl55c7r3f6gv1" path="res://resources/wheel_segments/-5.tres" id="21_lswn8"]
+[ext_resource type="Material" uid="uid://dyj8eairiftki" path="res://shaders/grid_transition.tres" id="22_ryguw"]
+[ext_resource type="Texture2D" uid="uid://dttplgd77sd8" path="res://assets/kenney_game-icons/PNG/White/2x/cross.png" id="23_1u8w0"]
+[ext_resource type="Texture2D" uid="uid://bgpmao47wg1rx" path="res://assets/thoughtbubble.png" id="24_0odxb"]
+[ext_resource type="Texture2D" uid="uid://do3kedcw377ce" path="res://assets/person/person_main.png" id="25_a6jrf"]
+[ext_resource type="Texture2D" uid="uid://buxaqm1vh2ndh" path="res://assets/thoughtconnector.png" id="25_kq58d"]
+[ext_resource type="Texture2D" uid="uid://v0owrle53sg4" path="res://assets/person/person_mouth.png" id="26_xuqvo"]
+[ext_resource type="Shader" uid="uid://qkx4gwtptmif" path="res://shaders/shake.gdshader" id="27_qsp4k"]
+[ext_resource type="Texture2D" uid="uid://c7h10hmurmxky" path="res://assets/person/person_hair.png" id="28_kq58d"]
+[ext_resource type="AudioStream" uid="uid://ca6j3dod5r2t7" path="res://assets/sounds/person_talk.wav" id="31_seu75"]
+[ext_resource type="AudioStream" uid="uid://ce8x15nytjebj" path="res://assets/sounds/kenney_interface-sounds/Audio/scroll_004.ogg" id="32_htxhm"]
+[ext_resource type="AudioStream" uid="uid://sidqavldiakl" path="res://assets/sounds/kenney_music-jingles/Audio/Pizzicato jingles/jingles_PIZZI07.ogg" id="33_4k2k6"]
+[ext_resource type="AudioStream" uid="uid://cvlfuiok2kdm4" path="res://assets/sounds/kenney_music-jingles/Audio/Pizzicato jingles/jingles_PIZZI02.ogg" id="34_0rl1p"]
+[ext_resource type="AudioStream" uid="uid://sx8eljtc48ke" path="res://assets/sounds/Cartoon Poof Sound Effect.mp3" id="35_ok6jj"]
+[ext_resource type="AudioStream" uid="uid://babcqexopnvqi" path="res://assets/sounds/freesound_community-cash-register-purchase-87313.mp3" id="36_facbu"]
+[ext_resource type="AudioStream" uid="uid://drb3u3s2slp4p" path="res://assets/sounds/kenney_interface-sounds/Audio/drop_002.ogg" id="37_b1qrp"]
+[ext_resource type="AudioStream" uid="uid://u02lv7cgr6oo" path="res://assets/sounds/kenney_interface-sounds/Audio/confirmation_002.ogg" id="38_come4"]
+[ext_resource type="AudioStream" uid="uid://dnl5al0ugogyn" path="res://assets/sounds/kenney_interface-sounds/Audio/question_002.ogg" id="39_h8e4i"]
+[ext_resource type="AudioStream" uid="uid://c0begtb2x0tnv" path="res://assets/sounds/kenney_interface-sounds/Audio/question_003.ogg" id="40_4lmeg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7mycd"]
 shader = ExtResource("1_lquwl")
-shader_parameter/color1 = Color(0.03137255, 0.09803922, 0.08235294, 1)
-shader_parameter/color2 = Color(0.058139384, 0.14487395, 0.12395688, 1)
+shader_parameter/color1 = Color(0.13333334, 0.05882353, 0.0627451, 1)
+shader_parameter/color2 = Color(0.21568628, 0.07058824, 0.09803922, 1)
 shader_parameter/repeat_amount = 30.0000013775
 shader_parameter/mod_value = 2.0
 shader_parameter/rotation_speed = 0.02
 shader_parameter/use_rainbow = false
 shader_parameter/rainbow_speed = 0.5
 shader_parameter/rainbow_opacity = 1.0
-
-[sub_resource type="Resource" id="Resource_xipcs"]
-script = ExtResource("4_272bh")
-texture = ExtResource("9_ycdy4")
-static_add_modifier = -2.0
-metadata/_custom_type_script = "uid://bxn36dbjtdfd6"
 
 [sub_resource type="LabelSettings" id="LabelSettings_o26a8"]
 font = ExtResource("4_1bvp3")
@@ -40,14 +61,207 @@ shadow_size = 20
 shadow_color = Color(0, 0, 0, 0.7254902)
 shadow_offset = Vector2(0, 10)
 
-[node name="Node2D" type="Node2D" unique_id=1128234424 node_paths=PackedStringArray("segment_spots", "spinning_wheel", "money")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w48qg"]
+bg_color = Color(1, 1, 1, 0.08235294)
+corner_detail = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_w48qg"]
+font = ExtResource("4_1bvp3")
+font_size = 34
+outline_size = 37
+outline_color = Color(0.050980393, 0.11764706, 0.16862746, 1)
+shadow_size = 20
+shadow_color = Color(0, 0, 0, 0.7254902)
+shadow_offset = Vector2(0, 10)
+
+[sub_resource type="Animation" id="Animation_lswn8"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Animate:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(352, 0, 0, 0.083333336, -58.666668),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Animate:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, 0, 0, 0.083333336, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_a6jrf"]
+resource_name = "open"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Animate:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(2, 2),
+"points": PackedFloat32Array(352, 0, 0, 0.083333336, -58.666668, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Animate:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(2, 2),
+"points": PackedFloat32Array(0, 0, 0, 0.083333336, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xuqvo"]
+_data = {
+&"RESET": SubResource("Animation_lswn8"),
+&"open": SubResource("Animation_a6jrf")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_lswn8"]
+font = ExtResource("4_1bvp3")
+font_size = 25
+outline_size = 12
+outline_color = Color(0.050980393, 0.11764706, 0.16862746, 1)
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.74509805)
+shadow_offset = Vector2(0, 5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qtftl"]
+shader = ExtResource("27_qsp4k")
+shader_parameter/mouth_height = 10.000000475
+shader_parameter/talk_speed = 17.50000083125
+shader_parameter/talk_intensity = 0.0
+
+[sub_resource type="Animation" id="Animation_d13ii"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionLayer:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TransitionLayer:material:shader_parameter/invert")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_1u8w0"]
+resource_name = "in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionLayer:material:shader_parameter/invert")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TransitionLayer:material:shader_parameter/progress")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 90.0]
+}
+
+[sub_resource type="Animation" id="Animation_0odxb"]
+resource_name = "out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionLayer:material:shader_parameter/progress")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 90.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TransitionLayer:material:shader_parameter/invert")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lswn8"]
+_data = {
+&"RESET": SubResource("Animation_d13ii"),
+&"in": SubResource("Animation_1u8w0"),
+&"out": SubResource("Animation_0odxb")
+}
+
+[node name="Node2D" type="Node2D" unique_id=1128234424 node_paths=PackedStringArray("background", "segment_spots", "shop_items", "spinning_wheel", "transition_player", "side_panel_player", "side_panel", "side_panel_button", "talk_timer", "person_mouth", "talk_label", "money", "talk_player", "scroll_player", "result_player_1", "result_player_2", "result_player_3", "result_player_4", "collect_player_1", "collect_player_2", "transition_audio_player", "transition_back_audio_player")]
 script = ExtResource("1_ycdy4")
+owned_segments = Array[ExtResource("4_272bh")]([ExtResource("6_kek77"), ExtResource("4_5vw27"), ExtResource("4_7mycd"), ExtResource("6_4c57u"), ExtResource("7_dg77c"), ExtResource("8_w48qg")])
+background = NodePath("CanvasLayer/Control/Background")
 segment_spots = [NodePath("CanvasLayer/Control/Wheel/Spinning Stuff/Empty Wheel/Piece 6"), NodePath("CanvasLayer/Control/Wheel/Spinning Stuff/Empty Wheel/Piece 1"), NodePath("CanvasLayer/Control/Wheel/Spinning Stuff/Empty Wheel/Piece 2"), NodePath("CanvasLayer/Control/Wheel/Spinning Stuff/Empty Wheel/Piece 3"), NodePath("CanvasLayer/Control/Wheel/Spinning Stuff/Empty Wheel/Piece 4"), NodePath("CanvasLayer/Control/Wheel/Spinning Stuff/Empty Wheel/Piece 5")]
+shop_items = [NodePath("CanvasLayer/Control/SidePanel/Animate/SplitContainer/Shop/MarginContainer/VBoxContainer/RarityII")]
 spinning_wheel = NodePath("CanvasLayer/Control/Wheel/Spinning Stuff")
+transition_player = NodePath("TransitionPlayer")
+side_panel_player = NodePath("CanvasLayer/Control/SidePanel/SidePanelPlayer")
+side_panel = NodePath("CanvasLayer/Control/SidePanel")
+side_panel_button = NodePath("CanvasLayer/Control/SidePanelButton")
+talk_timer = NodePath("TalkTimer")
+person_mouth = NodePath("CanvasLayer/Control/PlayerArea/Person/Mouth")
+talk_label = NodePath("CanvasLayer/Control/PlayerArea/ThoughBubble/MarginContainer/Label")
 money = NodePath("CanvasLayer/Control/Money")
 wheel_max_acceleration_speed = 16.0
 wheel_maximum_time_spinning = 2.0
 wheel_maximum_loops_around = 2
+talk_player = NodePath("TalkPlayer")
+scroll_player = NodePath("ScrollPlayer")
+result_player_1 = NodePath("ResultPlayer1")
+result_player_2 = NodePath("ResultPlayer2")
+result_player_3 = NodePath("ResultPlayer3")
+result_player_4 = NodePath("ResultPlayer4")
+collect_player_1 = NodePath("CollectPlayer1")
+collect_player_2 = NodePath("CollectPlayer2")
+transition_audio_player = NodePath("TransitionAudioPlayer")
+transition_back_audio_player = NodePath("TransitionBackAudioPlayer")
 metadata/_edit_vertical_guides_ = [576.0]
 metadata/_edit_horizontal_guides_ = [324.0]
 
@@ -61,7 +275,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control" unique_id=1039752380]
+[node name="Background" type="ColorRect" parent="CanvasLayer/Control" unique_id=1039752380]
 material = SubResource("ShaderMaterial_7mycd")
 layout_mode = 1
 anchors_preset = 15
@@ -87,6 +301,27 @@ grow_vertical = 2
 offset_transform_enabled = true
 offset_transform_position = Vector2(20, 20)
 
+[node name="Wheel Stand2" type="TextureRect" parent="CanvasLayer/Control/Wheel" unique_id=1604909148]
+modulate = Color(0, 0, 0, 0.45490196)
+layout_mode = 0
+offset_left = -131.0
+offset_top = 44.0
+offset_right = 130.0
+offset_bottom = 305.0
+texture = ExtResource("3_w48qg")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Wheel Stand" type="TextureRect" parent="CanvasLayer/Control/Wheel" unique_id=828300457]
+layout_mode = 0
+offset_left = -131.0
+offset_top = 38.0
+offset_right = 130.0
+offset_bottom = 299.0
+texture = ExtResource("3_w48qg")
+expand_mode = 1
+stretch_mode = 5
+
 [node name="Wheel Shadow" type="Sprite2D" parent="CanvasLayer/Control/Wheel" unique_id=1965666031]
 modulate = Color(0, 0, 0, 0.42745098)
 position = Vector2(0, 8)
@@ -101,6 +336,7 @@ scale = Vector2(0.99999994, 0.99999994)
 texture = ExtResource("1_0xm2m")
 
 [node name="Piece 1" parent="CanvasLayer/Control/Wheel/Spinning Stuff/Empty Wheel" unique_id=275251851 instance=ExtResource("3_lquwl")]
+rotation = -0.00030642768
 segmentData = ExtResource("4_5vw27")
 
 [node name="Piece 2" parent="CanvasLayer/Control/Wheel/Spinning Stuff/Empty Wheel" unique_id=135374179 instance=ExtResource("3_lquwl")]
@@ -117,7 +353,7 @@ segmentData = ExtResource("7_dg77c")
 
 [node name="Piece 5" parent="CanvasLayer/Control/Wheel/Spinning Stuff/Empty Wheel" unique_id=19341097 instance=ExtResource("3_lquwl")]
 rotation = 4.1887903
-segmentData = SubResource("Resource_xipcs")
+segmentData = ExtResource("8_w48qg")
 
 [node name="Piece 6" parent="CanvasLayer/Control/Wheel/Spinning Stuff/Empty Wheel" unique_id=1039274748 instance=ExtResource("3_lquwl")]
 rotation = 5.2359877
@@ -127,24 +363,25 @@ segmentData = ExtResource("6_kek77")
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_h2yge")
 
-[node name="Button" type="Button" parent="CanvasLayer/Control" unique_id=1307170822]
+[node name="SpinButton" type="Button" parent="CanvasLayer/Control" unique_id=1307170822]
 layout_mode = 1
-anchors_preset = 7
+anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -139.5
-offset_top = -95.0
-offset_right = 139.5
-offset_bottom = -22.0
+anchor_bottom = 0.5
+offset_left = -139.0
+offset_top = 227.0
+offset_right = 140.0
+offset_bottom = 301.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 theme_override_colors/font_outline_color = Color(0.050980393, 0.11764706, 0.16862746, 1)
 theme_override_constants/outline_size = 32
 theme_override_fonts/font = ExtResource("4_1bvp3")
 theme_override_font_sizes/font_size = 40
 text = "SPIN"
+flat = true
 
 [node name="Money" type="Label" parent="CanvasLayer/Control" unique_id=1273706835]
 layout_mode = 1
@@ -158,4 +395,371 @@ label_settings = SubResource("LabelSettings_o26a8")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="pressed" from="CanvasLayer/Control/Button" to="." method="_on_button_pressed"]
+[node name="SidePanelButton" type="Control" parent="CanvasLayer/Control" unique_id=1257500258]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -166.0
+offset_bottom = 166.0
+grow_horizontal = 0
+
+[node name="Shadow" type="Sprite2D" parent="CanvasLayer/Control/SidePanelButton" unique_id=1597692564]
+modulate = Color(0, 0, 0, 0.69803923)
+position = Vector2(-18, -10)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("15_d13ii")
+offset = Vector2(83, 83)
+
+[node name="Outline" type="Sprite2D" parent="CanvasLayer/Control/SidePanelButton" unique_id=322064913]
+modulate = Color(0.050980393, 0.11764706, 0.16862746, 1)
+position = Vector2(-18, -16)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("15_d13ii")
+offset = Vector2(83, 83)
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Control/SidePanelButton" unique_id=705946171]
+texture = ExtResource("15_d13ii")
+offset = Vector2(83, 83)
+
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer/Control/SidePanelButton" unique_id=1235137155]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SidePanel" type="Control" parent="CanvasLayer/Control" unique_id=28568561]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -337.0
+offset_right = 0.001953125
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Animate" type="Control" parent="CanvasLayer/Control/SidePanel" unique_id=1410959408]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 352.0
+offset_right = 352.00012
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Shadow" type="ColorRect" parent="CanvasLayer/Control/SidePanel/Animate" unique_id=2039905753]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.43529412)
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control/SidePanel/Animate" unique_id=2121425644]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.2702686, 0, 0.06559169, 1)
+
+[node name="SplitContainer" type="SplitContainer" parent="CanvasLayer/Control/SidePanel/Animate" unique_id=213288598]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/autohide = 0
+theme_override_styles/split_bar_background = SubResource("StyleBoxFlat_w48qg")
+split_offsets = PackedInt32Array(300)
+vertical = true
+split_offset = 300
+
+[node name="Shop" type="ScrollContainer" parent="CanvasLayer/Control/SidePanel/Animate/SplitContainer" unique_id=444617482]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/SidePanel/Animate/SplitContainer/Shop" unique_id=1558623148]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/SidePanel/Animate/SplitContainer/Shop/MarginContainer" unique_id=1586652531]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 9
+
+[node name="Shop" type="Label" parent="CanvasLayer/Control/SidePanel/Animate/SplitContainer/Shop/MarginContainer/VBoxContainer" unique_id=843068698]
+layout_mode = 2
+text = "Shop"
+label_settings = SubResource("LabelSettings_o26a8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RarityII" parent="CanvasLayer/Control/SidePanel/Animate/SplitContainer/Shop/MarginContainer/VBoxContainer" unique_id=276746128 instance=ExtResource("15_vivmo")]
+layout_mode = 2
+title = "Rarity II"
+description = "+4, +6, +8, as well as unlucky subtracters like -3, -4, and -5."
+price = 15.0
+good_items = Array[ExtResource("4_272bh")]([ExtResource("16_getpj"), ExtResource("17_ryguw"), ExtResource("18_d13ii")])
+bad_items = Array[ExtResource("4_272bh")]([ExtResource("19_1u8w0"), ExtResource("20_0odxb"), ExtResource("21_lswn8")])
+
+[node name="Inventory" type="ScrollContainer" parent="CanvasLayer/Control/SidePanel/Animate/SplitContainer" unique_id=996772491]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/SidePanel/Animate/SplitContainer/Inventory" unique_id=1568841797]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/SidePanel/Animate/SplitContainer/Inventory/MarginContainer" unique_id=281080140]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Shop" type="Label" parent="CanvasLayer/Control/SidePanel/Animate/SplitContainer/Inventory/MarginContainer/VBoxContainer" unique_id=969947710]
+layout_mode = 2
+text = "Inventory"
+label_settings = SubResource("LabelSettings_w48qg")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="CanvasLayer/Control/SidePanel/Animate" unique_id=1231104661]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -59.999268
+offset_bottom = 59.999268
+grow_horizontal = 0
+
+[node name="Outline2" type="Sprite2D" parent="CanvasLayer/Control/SidePanel/Animate/Control" unique_id=142666456]
+modulate = Color(0, 0, 0, 0.5058824)
+position = Vector2(30, 33)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("23_1u8w0")
+
+[node name="Outline" type="Sprite2D" parent="CanvasLayer/Control/SidePanel/Animate/Control" unique_id=906377031]
+modulate = Color(0.050980393, 0.11764706, 0.16862746, 1)
+position = Vector2(30, 30)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("23_1u8w0")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Control/SidePanel/Animate/Control" unique_id=979607281]
+position = Vector2(30, 30)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("23_1u8w0")
+
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer/Control/SidePanel/Animate/Control" unique_id=395576760]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SidePanelPlayer" type="AnimationPlayer" parent="CanvasLayer/Control/SidePanel" unique_id=611790821]
+libraries/ = SubResource("AnimationLibrary_xuqvo")
+
+[node name="PlayerArea" type="Control" parent="CanvasLayer/Control" unique_id=1410526353]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 366.0
+grow_vertical = 2
+
+[node name="ThoughBubble" type="Control" parent="CanvasLayer/Control/PlayerArea" unique_id=116047594]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -618.0
+offset_bottom = -245.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/PlayerArea/ThoughBubble" unique_id=1656306544]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("24_0odxb")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Control/PlayerArea/ThoughBubble" unique_id=1864076396]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 221.00003
+offset_top = 204.00002
+offset_right = 18.50003
+offset_bottom = 204.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.107321344
+texture = ExtResource("25_kq58d")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/PlayerArea/ThoughBubble" unique_id=869163130]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_right = 60
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/PlayerArea/ThoughBubble/MarginContainer" unique_id=777264897]
+layout_mode = 2
+size_flags_vertical = 1
+label_settings = SubResource("LabelSettings_lswn8")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Person" type="Control" parent="CanvasLayer/Control/PlayerArea" unique_id=538394390]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -270.23428
+offset_right = -88.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Main" type="TextureRect" parent="CanvasLayer/Control/PlayerArea/Person" unique_id=1273379280]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("25_a6jrf")
+expand_mode = 5
+stretch_mode = 6
+
+[node name="Mouth" type="TextureRect" parent="CanvasLayer/Control/PlayerArea/Person" unique_id=294655985]
+material = SubResource("ShaderMaterial_qtftl")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("26_xuqvo")
+expand_mode = 5
+stretch_mode = 6
+
+[node name="Hair" type="TextureRect" parent="CanvasLayer/Control/PlayerArea/Person" unique_id=854007722]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("28_kq58d")
+expand_mode = 5
+stretch_mode = 6
+
+[node name="TransitionLayer" type="ColorRect" parent="CanvasLayer" unique_id=1206699556]
+material = ExtResource("22_ryguw")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+color = Color(0.098682486, 0.020091685, 0.03310029, 1)
+
+[node name="TransitionPlayer" type="AnimationPlayer" parent="." unique_id=991112016]
+root_node = NodePath("../CanvasLayer")
+libraries/ = SubResource("AnimationLibrary_lswn8")
+
+[node name="TalkTimer" type="Timer" parent="." unique_id=935110389]
+wait_time = 3.0
+one_shot = true
+
+[node name="TalkPlayer" type="AudioStreamPlayer" parent="." unique_id=156109011]
+stream = ExtResource("31_seu75")
+volume_db = -15.0
+
+[node name="ScrollPlayer" type="AudioStreamPlayer" parent="." unique_id=261500239]
+stream = ExtResource("32_htxhm")
+volume_db = -15.0
+bus = &"Sound Effects"
+
+[node name="ResultPlayer1" type="AudioStreamPlayer" parent="." unique_id=1820091577]
+stream = ExtResource("33_4k2k6")
+volume_db = -15.0
+bus = &"Sound Effects"
+
+[node name="ResultPlayer2" type="AudioStreamPlayer" parent="." unique_id=1043450446]
+stream = ExtResource("34_0rl1p")
+volume_db = -15.0
+bus = &"Sound Effects"
+
+[node name="ResultPlayer3" type="AudioStreamPlayer" parent="." unique_id=1799946136]
+stream = ExtResource("35_ok6jj")
+volume_db = -7.5
+bus = &"Sound Effects"
+
+[node name="ResultPlayer4" type="AudioStreamPlayer" parent="." unique_id=74313664]
+stream = ExtResource("36_facbu")
+volume_db = -15.0
+bus = &"Sound Effects"
+
+[node name="CollectPlayer1" type="AudioStreamPlayer" parent="." unique_id=1489842590]
+stream = ExtResource("37_b1qrp")
+volume_db = -10.0
+bus = &"Sound Effects"
+
+[node name="CollectPlayer2" type="AudioStreamPlayer" parent="." unique_id=1857976027]
+stream = ExtResource("38_come4")
+volume_db = -10.0
+bus = &"Sound Effects"
+
+[node name="TransitionAudioPlayer" type="AudioStreamPlayer" parent="." unique_id=1213986745]
+stream = ExtResource("39_h8e4i")
+volume_db = -10.0
+pitch_scale = 0.8
+bus = &"Sound Effects"
+
+[node name="TransitionBackAudioPlayer" type="AudioStreamPlayer" parent="." unique_id=628437729]
+stream = ExtResource("40_4lmeg")
+volume_db = -10.0
+pitch_scale = 0.8
+bus = &"Sound Effects"
+
+[connection signal="pressed" from="CanvasLayer/Control/SpinButton" to="." method="_on_spin_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/SidePanelButton/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/SidePanel/Animate/Control/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="timeout" from="TalkTimer" to="." method="_on_talk_timer_timeout"]
+[connection signal="finished" from="TalkPlayer" to="." method="_on_audio_stream_player_finished"]
+[connection signal="finished" from="ScrollPlayer" to="." method="_on_scroll_player_finished"]

@@ -17,14 +17,14 @@ func add_modifier(old_score: float) -> float:
 	new_score = new_score * static_multiply_modifier
 	return new_score
 
-func generate_message(old_score: float, new_score: float) -> String:
+func generate_message() -> String:
 	var add_string: String = ""
 	var multiply_string: String = ""
 	var final_string: String = ""
 	if static_add_modifier != 0:
 		add_string = "%+.2f" % static_add_modifier
-	if static_multiply_modifier != 1 and static_multiply_modifier != 0:
-		if -1 < static_multiply_modifier and static_multiply_modifier < 1:
+	if static_multiply_modifier != 1:
+		if -1 < static_multiply_modifier and static_multiply_modifier < 1 and static_multiply_modifier != 0:
 			var division_number: float = 1 / static_multiply_modifier
 			multiply_string = "/ %.2f" % division_number
 		else:
@@ -43,7 +43,7 @@ func generate_message(old_score: float, new_score: float) -> String:
 func generate_update(old_score: float) -> ScoreUpdate:
 	var updated_score: ScoreUpdate = ScoreUpdate.new()
 	var new_score: float = add_modifier(old_score)
-	var message: String = generate_message(old_score, new_score)
+	var message: String = generate_message()
 	var is_benefitial: bool = false
 	var benefitial_determiner: float = new_score - old_score
 	if benefitial_determiner >= 0:

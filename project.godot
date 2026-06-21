@@ -14,6 +14,10 @@ config/name="Wheel of Misfortune"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Screenshots="*uid://bljdk7ctqona7"
+
 [display]
 
 window/stretch/mode="canvas_items"
@@ -21,12 +25,14 @@ window/stretch/aspect="expand"
 
 [editor]
 
+movie_writer/video_quality=0.9
+movie_writer/movie_file="C:/Users/dvy/Documents/seriousgamejamgame/recorded_videos/video.ogv"
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
+enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg", "res://addons/screenshots/plugin.cfg")
 
 [physics]
 
