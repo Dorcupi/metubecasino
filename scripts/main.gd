@@ -14,7 +14,9 @@ enum PURCHASING_STATE {
 }
 const SPIN_COUNTER = preload("res://resources/spin_counter.tscn")
 const SHOP_UPGRADE = preload("res://resources/shop_upgrade.tscn")
+const SEGMENT_ITEM = preload("res://resources/segment_item.tscn")
 @export var owned_segments: Array[WheelSegment]
+var uninserted_segments: Array[WheelSegment] = []
 @export var background: ColorRect
 @export var screen_shake: ColorRect
 @export var segment_spots: Array[Segment]
@@ -53,6 +55,7 @@ const SHOP_UPGRADE = preload("res://resources/shop_upgrade.tscn")
 @export var spin_counter_spawner: Node2D
 @export var dice_particles: Control
 @export var shop_box_container: VBoxContainer
+@export var inventory_box_container: VBoxContainer
 var side_panel_open: bool = false
 var wheel_current_speed: float
 var is_spinning: bool = false
@@ -120,6 +123,12 @@ var avaliable_upgrades: Array[Dictionary] = [
 	}
 ]
 
+# Planned rarities (balances may be needed):
+# Rarity II - $15.00: +4, +6, +8
+# Rarity III - $25.00: +10, x1.1, x1.2
+# Rarity IV - $50: x1.25, x1.3 repeating, x1.5
+# Rarity V - $100: x2, +50, x2.1
+
 func _ready() -> void:
 	for i in shop_items:
 		i.connect("purchase_item", buy_item)
@@ -135,6 +144,8 @@ func _ready() -> void:
 		instance.upgrade = i["upgrade"]
 		instance.connect("purchase_item", buy_upgrade)
 		instance.connect("toggle_item", toggle_upgrade)
+	uninserted_segments = calculate_uninserted_segments(owned_segments)
+	insert_inventory(uninserted_segments)
 
 func _physics_process(delta: float) -> void:
 	for i in dice_particles.get_children():
@@ -244,6 +255,8 @@ func _physics_process(delta: float) -> void:
 								game_state = GAME_STATE.GAMBLING
 								print("SWITCHED GAME AND PURCHASING STATES")
 								load_wheel(regular_items_storage)
+								uninserted_segments = calculate_uninserted_segments(owned_segments)
+								insert_inventory(uninserted_segments)
 								need_to_update_dice = true
 								spinning_wheel.rotation = 0
 								print("INIT WHEEL, TRANSITIONING")
@@ -386,6 +399,8 @@ func delete_slice(node: Node) -> void:
 	delete_slice_player_1.play()
 	delete_slice_player_2.play(0.15)
 	wheel_particles.emitting = true
+	uninserted_segments = calculate_uninserted_segments(owned_segments)
+	insert_inventory(uninserted_segments)
 
 func spin() -> void:
 	for i in segment_spots:
@@ -420,6 +435,7 @@ func apply_effect(segment: WheelSegment) -> String:
 	summon_counters(data.message)
 	return data.message
 
+# Bug, only checks if at least one, not if one per slice
 func segment_check() -> bool:
 	var has_segments: bool = true
 	for i in segment_spots:
@@ -439,12 +455,16 @@ func rarity_check() -> bool:
 	var negative_rarities: Array[int] = []
 	for i in segment_spots:
 		if i.segmentData:
-			if i.segmentData.generate_update(score).is_benefitial:
+			var update: ScoreUpdate = i.segmentData.generate_update(score)
+			print(update.is_benefitial)
+			if update.is_benefitial:
 				if not positive_rarities.has(i.segmentData.rarity):
 					positive_rarities.append(i.segmentData.rarity)
 			else:
 				if not negative_rarities.has(i.segmentData.rarity):
 					negative_rarities.append(i.segmentData.rarity)
+	print(positive_rarities)
+	print(negative_rarities)
 	var has_all_rarities: bool = true
 	var used_rarity_passes: int = 0
 	for i in positive_rarities:
@@ -533,3 +553,40 @@ func summon_counters(message: String):
 	var parts: PackedStringArray = message.split(" ", false, 2)
 	for i in parts:
 		summon_counter(i)
+
+func calculate_uninserted_segments(arr: Array[WheelSegment]) -> Array[WheelSegment]:
+	var inserted_segments: Array[WheelSegment] = []
+	for i in segment_spots:
+		if i.segmentData:
+			inserted_segments.append(i.segmentData)
+	var _uninserted_segments: Array[WheelSegment] = arr.duplicate()
+	for i in inserted_segments:
+		if _uninserted_segments.has(i):
+			_uninserted_segments.erase(i)
+	return _uninserted_segments
+
+func insert_inventory(arr: Array[WheelSegment]) -> void:
+	for i in inventory_box_container.get_children():
+		if i is SegmentItem:
+			i.queue_free()
+	for x in arr:
+		var instance: Node = SEGMENT_ITEM.instantiate()
+		inventory_box_container.add_child(instance)
+		instance.owner = inventory_box_container
+		instance.item = x
+		instance.connect("insert_item", insert_into_wheel)
+
+func insert_into_wheel(node: Node, item: WheelSegment) -> void:
+	var space_avaliable: bool = false
+	var avaliable_spots: Array[Segment] = []
+	for i in segment_spots:
+		if not i.segmentData:
+			space_avaliable = true
+			avaliable_spots.append(i)
+	if space_avaliable:
+		node.queue_free()
+		uninserted_segments.erase(item)
+		avaliable_spots[0].segmentData = item
+		print("INSERTED ITEM")
+	else:
+		printerr("NO SPACE AVALIABLE")

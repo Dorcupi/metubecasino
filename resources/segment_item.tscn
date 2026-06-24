@@ -1,0 +1,108 @@
+[gd_scene format=3 uid="uid://j42juc4ytfh8"]
+
+[ext_resource type="Script" uid="uid://r410asgfmj2w" path="res://scripts/segment_item.gd" id="1_l6vmd"]
+[ext_resource type="Texture2D" uid="uid://7ucehcw55wak" path="res://assets/wheel/segments/+6.png" id="1_pyotp"]
+[ext_resource type="FontFile" uid="uid://386s7a4jkjck" path="res://assets/fonts/Oi-Regular.ttf" id="2_l6vmd"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2cqfq"]
+font = ExtResource("2_l6vmd")
+font_size = 13
+font_color = Color(1, 0.9529412, 0.85490197, 1)
+outline_color = Color(0.050980393, 0.11764706, 0.16862746, 1)
+shadow_size = 20
+shadow_offset = Vector2(0, 6.52)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yaehf"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.433302, 0, 0.14407432, 1)
+border_width_left = 4
+border_width_right = 4
+border_color = Color(0.050980393, 0.11764706, 0.16862746, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gu4pi"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.64705884, 0, 0.23137255, 1)
+border_width_left = 4
+border_width_right = 4
+border_color = Color(0.050980393, 0.11764706, 0.16862746, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vnqmk"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.64705884, 0, 0.23137255, 0.7647059)
+border_width_left = 4
+border_width_right = 4
+border_color = Color(0.050980393, 0.11764706, 0.16862746, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_07twt"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.28235295, 0.1764706, 0.21176471, 0.8980392)
+border_width_left = 4
+border_width_right = 4
+border_color = Color(0.050980393, 0.11764706, 0.16862746, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 5
+
+[node name="SegmentItem" type="VBoxContainer" unique_id=276746128]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 9
+script = ExtResource("1_l6vmd")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=430619970]
+layout_mode = 2
+texture = ExtResource("1_pyotp")
+expand_mode = 5
+
+[node name="RarityLabel" type="Label" parent="." unique_id=2108262241]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+text = "Rarity II"
+label_settings = SubResource("LabelSettings_2cqfq")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="InsertButton" type="Button" parent="." unique_id=1131518855]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.9529412, 0.85490197, 1)
+theme_override_colors/font_outline_color = Color(0.050980393, 0.11764706, 0.16862746, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("2_l6vmd")
+theme_override_font_sizes/font_size = 19
+theme_override_styles/normal = SubResource("StyleBoxFlat_yaehf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_gu4pi")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vnqmk")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_07twt")
+text = "INSERT"
+
+[connection signal="pressed" from="InsertButton" to="." method="_on_insert_button_pressed"]

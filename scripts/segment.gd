@@ -6,6 +6,7 @@ class_name Segment
 @onready var shine_timer: Timer = $ShineTimer
 @onready var cpu_particles_2d: CPUParticles2D = $CPUParticles2D
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
+@onready var root: Node2D = get_tree().current_scene
 @export var segmentData: WheelSegment:
 	set(new_value):
 		segmentData = new_value
@@ -32,7 +33,7 @@ func _ready() -> void:
 		cpu_particles_2d.texture = null
 
 func _physics_process(delta: float) -> void:
-	if mouse_in and mouse_pressed and segmentData:
+	if mouse_in and mouse_pressed and segmentData and root.game_state == root.GAME_STATE.GAMBLING:
 		if is_equal_approx(deletion_time, 0):
 			print("0")
 			audio_stream_player.stop()
@@ -106,7 +107,6 @@ func set_shine(value: float) -> void:
 func _on_shine_timer_timeout() -> void:
 	stop_shine()
 
-
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
@@ -114,10 +114,8 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 		if event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
 			mouse_pressed = false
 
-
 func _on_area_2d_mouse_entered() -> void:
 	mouse_in = true
-
 
 func _on_area_2d_mouse_exited() -> void:
 	mouse_in = false

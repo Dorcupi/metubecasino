@@ -7,4 +7,5 @@
 script = ExtResource("1_dhn2x")
 texture = ExtResource("2_uu6px")
 static_add_modifier = -3.0
+rarity = 2
 metadata/_custom_type_script = "uid://bxn36dbjtdfd6"

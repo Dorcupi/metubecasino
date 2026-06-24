@@ -293,7 +293,7 @@ _data = {
 &"out": SubResource("Animation_0odxb")
 }
 
-[node name="Node2D" type="Node2D" unique_id=1128234424 node_paths=PackedStringArray("background", "screen_shake", "segment_spots", "shop_items", "spinning_wheel", "wheel_particles", "wheel_particles_2", "transition_player", "side_panel_player", "side_panel", "side_panel_button", "talk_timer", "person_mouth", "talk_label", "money", "talk_player", "scroll_player", "result_player_1", "result_player_2", "result_player_3", "result_player_4", "collect_player_1", "collect_player_2", "transition_audio_player", "transition_back_audio_player", "buy_player_1", "buy_player_2", "delete_slice_player_1", "delete_slice_player_2", "spin_counter_spawner", "dice_particles", "shop_box_container")]
+[node name="Node2D" type="Node2D" unique_id=1128234424 node_paths=PackedStringArray("background", "screen_shake", "segment_spots", "shop_items", "spinning_wheel", "wheel_particles", "wheel_particles_2", "transition_player", "side_panel_player", "side_panel", "side_panel_button", "talk_timer", "person_mouth", "talk_label", "money", "talk_player", "scroll_player", "result_player_1", "result_player_2", "result_player_3", "result_player_4", "collect_player_1", "collect_player_2", "transition_audio_player", "transition_back_audio_player", "buy_player_1", "buy_player_2", "delete_slice_player_1", "delete_slice_player_2", "spin_counter_spawner", "dice_particles", "shop_box_container", "inventory_box_container")]
 script = ExtResource("1_ycdy4")
 owned_segments = Array[ExtResource("4_272bh")]([ExtResource("6_kek77"), ExtResource("4_5vw27"), ExtResource("4_7mycd"), ExtResource("6_4c57u"), ExtResource("7_dg77c"), ExtResource("8_w48qg")])
 background = NodePath("CanvasLayer/Control/Background")
@@ -331,6 +331,7 @@ delete_slice_player_2 = NodePath("DeleteSlicePlayer2")
 spin_counter_spawner = NodePath("CanvasLayer/Control/Wheel/SpinCounterSpawner")
 dice_particles = NodePath("CanvasLayer/Control/DiceParticles")
 shop_box_container = NodePath("CanvasLayer/Control/SidePanel/Animate/SplitContainer/Shop/MarginContainer/VBoxContainer")
+inventory_box_container = NodePath("CanvasLayer/Control/SidePanel/Animate/SplitContainer/Inventory/MarginContainer/VBoxContainer")
 metadata/_edit_vertical_guides_ = [576.0, 1142.0, 1152.0]
 metadata/_edit_horizontal_guides_ = [324.0]
 
@@ -932,7 +933,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Shop" type="Label" parent="CanvasLayer/Control/SidePanel/Animate/SplitContainer/Inventory/MarginContainer/VBoxContainer" unique_id=969947710]
+[node name="Inventory" type="Label" parent="CanvasLayer/Control/SidePanel/Animate/SplitContainer/Inventory/MarginContainer/VBoxContainer" unique_id=969947710]
 layout_mode = 2
 text = "Inventory"
 label_settings = SubResource("LabelSettings_w48qg")
