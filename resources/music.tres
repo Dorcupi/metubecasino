@@ -1,0 +1,20 @@
+[gd_resource type="AudioStreamSynchronized" format=3 uid="uid://dyocfdlmkredj"]
+
+[ext_resource type="AudioStream" uid="uid://b52p7y5hxux8a" path="res://assets/music/Drums.mp3" id="1_t2i5e"]
+[ext_resource type="AudioStream" uid="uid://b06h4gshvqsdg" path="res://assets/music/Rhodes.mp3" id="2_huwt4"]
+[ext_resource type="AudioStream" uid="uid://c0i8s5kks74fv" path="res://assets/music/Echoer.mp3" id="3_evs14"]
+[ext_resource type="AudioStream" uid="uid://braaj7bb7dgsx" path="res://assets/music/Melody.mp3" id="4_eqylk"]
+[ext_resource type="AudioStream" uid="uid://bdu0i07nx2ua" path="res://assets/music/Cello.mp3" id="5_mmsdj"]
+
+[resource]
+stream_count = 5
+stream_0/stream = ExtResource("1_t2i5e")
+stream_0/volume = 0.0
+stream_1/stream = ExtResource("2_huwt4")
+stream_1/volume = 0.0
+stream_2/stream = ExtResource("3_evs14")
+stream_2/volume = 0.0
+stream_3/stream = ExtResource("4_eqylk")
+stream_3/volume = 0.0
+stream_4/stream = ExtResource("5_mmsdj")
+stream_4/volume = 0.0

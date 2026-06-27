@@ -1,0 +1,168 @@
+[gd_scene format=3 uid="uid://b27nev6p402hs"]
+
+[ext_resource type="Script" uid="uid://ckteog1xb7pss" path="res://scripts/intro.gd" id="1_0a7ni"]
+[ext_resource type="Texture2D" uid="uid://cmmibbunum5v3" path="res://assets/newspapers/INTRO.png" id="3_y72e6"]
+[ext_resource type="Shader" uid="uid://dso23k3nf22mg" path="res://shaders/sunburst.gdshader" id="14_gd62r"]
+[ext_resource type="Material" uid="uid://dyj8eairiftki" path="res://shaders/grid_transition.tres" id="22_puwy7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7vrkn"]
+shader = ExtResource("14_gd62r")
+shader_parameter/color1 = Color(0, 0.042583924, 0.14680794, 1)
+shader_parameter/color2 = Color(0.05882353, 0.07058824, 0.21568628, 1)
+shader_parameter/repeat_amount = 30.0000013775
+shader_parameter/mod_value = 2.0
+shader_parameter/rotation_speed = 0.02
+shader_parameter/use_rainbow = false
+shader_parameter/rainbow_speed = 0.5
+shader_parameter/rainbow_opacity = 1.0
+
+[sub_resource type="Animation" id="Animation_d13ii"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionLayer:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TransitionLayer:material:shader_parameter/invert")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_1u8w0"]
+resource_name = "in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionLayer:material:shader_parameter/invert")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TransitionLayer:material:shader_parameter/progress")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 90.0]
+}
+
+[sub_resource type="Animation" id="Animation_0odxb"]
+resource_name = "out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionLayer:material:shader_parameter/progress")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 90.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TransitionLayer:material:shader_parameter/invert")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g8g3n"]
+_data = {
+&"RESET": SubResource("Animation_d13ii"),
+&"in": SubResource("Animation_1u8w0"),
+&"out": SubResource("Animation_0odxb")
+}
+
+[node name="Node2D" type="Node2D" unique_id=1675942988]
+script = ExtResource("1_0a7ni")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=606042480]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1704402988]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="CanvasLayer/Control" unique_id=1438635001]
+material = SubResource("ShaderMaterial_7vrkn")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -566.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.03129335, 0.099569954, 0.0835458, 1)
+
+[node name="Control2" type="Control" parent="CanvasLayer/Control" unique_id=1682113098]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Newspaper" type="TextureRect" parent="CanvasLayer/Control/Control2" unique_id=1578553856]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 75)
+texture = ExtResource("3_y72e6")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="TransitionLayer" type="ColorRect" parent="CanvasLayer" unique_id=672418314]
+visible = false
+material = ExtResource("22_puwy7")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+color = Color(0.098682486, 0.020091685, 0.03310029, 1)
+
+[node name="TransitionPlayer" type="AnimationPlayer" parent="." unique_id=664832465]
+root_node = NodePath("../CanvasLayer")
+libraries/ = SubResource("AnimationLibrary_g8g3n")

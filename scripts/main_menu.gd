@@ -1,4 +1,5 @@
 extends Node2D
+class_name MainMenu
 
 @export var dice_particles: Control
 @export var segment_spots: Array[Segment]

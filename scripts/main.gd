@@ -1,4 +1,5 @@
 extends Node2D
+class_name Game
 enum SPINNING_STATE {
 	ACCELERATING,
 	SPINNING,

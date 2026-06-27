@@ -76,6 +76,7 @@
 [ext_resource type="Resource" uid="uid://bqtsxowlc7xne" path="res://resources/wheel_segments/d2.5.tres" id="59_4obbf"]
 [ext_resource type="AudioStream" uid="uid://bskwytdtn7tli" path="res://assets/sounds/8footdino_on_scratch-alarm-301729.mp3" id="70_cyx1q"]
 [ext_resource type="AudioStream" uid="uid://20bap2b543c5" path="res://assets/sounds/kenney_music-jingles/Audio/Pizzicato jingles/jingles_PIZZI01.ogg" id="77_5dllo"]
+[ext_resource type="AudioStream" uid="uid://dyocfdlmkredj" path="res://resources/music.tres" id="78_5dllo"]
 [ext_resource type="AudioStream" uid="uid://cx8kudy35im5d" path="res://assets/sounds/kenney_music-jingles/Audio/Pizzicato jingles/jingles_PIZZI10.ogg" id="78_phcyf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7mycd"]
@@ -1199,7 +1200,7 @@ bus = &"Sound Effects"
 
 [node name="AlarmAudioPlayer" type="AudioStreamPlayer" parent="." unique_id=1970509083]
 stream = ExtResource("70_cyx1q")
-volume_db = -30.0
+volume_db = -20.0
 bus = &"Sound Effects"
 
 [node name="FailAudioPlayer" type="AudioStreamPlayer" parent="." unique_id=1674022197]
@@ -1211,6 +1212,9 @@ bus = &"Sound Effects"
 stream = ExtResource("78_phcyf")
 volume_db = -8.0
 bus = &"Sound Effects"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1909919106]
+stream = ExtResource("78_5dllo")
 
 [connection signal="pressed" from="CanvasLayer/Control/SpinButton" to="." method="_on_spin_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/SidePanelButton/TextureButton" to="." method="_on_texture_button_pressed"]
