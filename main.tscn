@@ -1200,7 +1200,7 @@ bus = &"Sound Effects"
 
 [node name="AlarmAudioPlayer" type="AudioStreamPlayer" parent="." unique_id=1970509083]
 stream = ExtResource("70_cyx1q")
-volume_db = -20.0
+volume_db = -30.0
 bus = &"Sound Effects"
 
 [node name="FailAudioPlayer" type="AudioStreamPlayer" parent="." unique_id=1674022197]

@@ -104,8 +104,10 @@ _data = {
 &"out": SubResource("Animation_0odxb")
 }
 
-[node name="Node2D" type="Node2D" unique_id=1675942988]
+[node name="Node2D" type="Node2D" unique_id=1675942988 node_paths=PackedStringArray("transition_player", "newspaper")]
 script = ExtResource("1_0a7ni")
+transition_player = NodePath("TransitionPlayer")
+newspaper = NodePath("CanvasLayer/Control/Control2/Newspaper")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=606042480]
 
@@ -123,7 +125,6 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -566.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -145,13 +146,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 offset_transform_enabled = true
-offset_transform_position = Vector2(0, 75)
+offset_transform_position = Vector2(0, 675)
 texture = ExtResource("3_y72e6")
 expand_mode = 3
 stretch_mode = 5
 
 [node name="TransitionLayer" type="ColorRect" parent="CanvasLayer" unique_id=672418314]
-visible = false
 material = ExtResource("22_puwy7")
 anchors_preset = 15
 anchor_right = 1.0

@@ -36,7 +36,11 @@ func _on_play_button_pressed() -> void:
 		animating = true
 		transition_player.play("out")
 		await transition_player.animation_finished
-		get_tree().change_scene_to_file("res://main.tscn")
+		if Overheader:
+			if Overheader.times_played >= 1:
+				get_tree().change_scene_to_file("res://main.tscn")
+			else:
+				get_tree().change_scene_to_file("res://intro.tscn")
 
 
 func _on_quit_button_pressed() -> void:

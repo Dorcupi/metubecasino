@@ -230,6 +230,13 @@ var caused_negative_score_message: Array[String] = [
 	"Oh no, I'm in the negatives now! I have to get out quick!"
 ]
 
+var caused_out_negative_score_message: Array[String] = [
+	"Yes! I'm out of the negatives!",
+	"Phew! I'm out of the negatives!",
+	"Thank goodness I got out before time ran out!",
+	"That was a close call!"
+]
+
 # Planned rarities (balances may be needed):
 # Rarity II - $14.99: +4, +6, +8
 # Rarity III - $36.99: +10, x1.1, x1.2
@@ -542,14 +549,17 @@ func apply_effect(segment: WheelSegment) -> String:
 		if i.during_function:
 			data = i.during_function.call(data)
 	var caused_negative: bool = false
+	var caused_out_negative: bool = false
 	if score >= 0.0 and data.new_score < 0.0 and not data.is_benefitial: caused_negative = true
+	if score < 0.0 and data.new_score >= 0.0 and data.is_benefitial: caused_out_negative = true
 	score = data.new_score
 	if data.is_benefitial:
 		result_player_2.play()
 		result_player_4.play()
-		if not in_negatives:
+		if caused_out_negative:
+			make_person_talk(2, caused_out_negative_score_message.pick_random())
+		elif not in_negatives:
 			var rand: int = randi_range(1, 2)
-			print(rand)
 			if rand == 2: make_person_talk(2, positive_score_messages.pick_random())
 		else: make_person_talk(2, in_negatives_positive_score_message.pick_random())
 		wheel_particles.emitting = true
@@ -561,7 +571,6 @@ func apply_effect(segment: WheelSegment) -> String:
 			make_person_talk(2, caused_negative_score_message.pick_random())
 		elif not in_negatives:
 			var rand: int = randi_range(1, 2)
-			print(rand)
 			if rand == 2: make_person_talk(2, negative_score_message.pick_random())
 		else: make_person_talk(2, in_negatives_negative_score_message.pick_random())
 	summon_counters(data.message)

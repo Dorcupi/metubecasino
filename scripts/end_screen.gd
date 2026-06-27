@@ -1,4 +1,5 @@
 extends Node2D
+class_name EndScreen
 
 @export var transition_player: AnimationPlayer
 @export var newspaper: TextureRect
