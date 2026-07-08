@@ -145,6 +145,6 @@ jobs:
         with:
           allowUpdates: true
           artifactErrorsFailBuild: true
-          artifacts: "build/windows, build/web, build/linux"
+          artifacts: "windows, web, linux"
           generateReleaseNotes: true
           tag: "v${{ steps.get_version.outputs.version }}"
