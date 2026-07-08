@@ -150,6 +150,6 @@ jobs:
         with:
           allowUpdates: true
           artifactErrorsFailBuild: true
-          artifacts: "build/*.zip"
+          artifacts: "build/*"
           generateReleaseNotes: true
           tag: "v${{ steps.get_version.outputs.version }}"
