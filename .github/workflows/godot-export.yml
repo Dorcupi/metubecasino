@@ -140,21 +140,10 @@ jobs:
           VERSION=$(sed -n 's/^config\/version="\(.*\)"/\1/p' project.godot)         
           echo "Extracted Version: $VERSION"
           echo "version=$VERSION" >> $GITHUB_OUTPUT
-      - name: Download Windows Artifact
-        uses: actions/download-artifact@v3.1.0
+      - name: Download Artifacts
+        uses: actions/download-artifact@v8
         with:
-          name: windows
-          path: build/windows
-      - name: Download Linux Artifact
-        uses: actions/download-artifact@v3.1.0
-        with:
-          name: linux
-          path: build/linux
-      - name: Download Web Artifact
-        uses: actions/download-artifact@v3.1.0
-        with:
-          name: web
-          path: build/web
+          path: build
       - name: Publish Version
         uses: ncipollo/release-action@v1
         with:
