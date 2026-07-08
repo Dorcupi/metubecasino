@@ -122,3 +122,29 @@ jobs:
   #       with:
   #         name: mac
   #         path: build/mac
+  publish-version:
+    name: Publish Version
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    needs: [export-linux, export-web, export-windows]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+      - name: Get Game Version
+        id: get_version
+        run: |
+          cd $PROJECT_PATH
+          VERSION=$(sed -n 's/^config\/version="\(.*\)"/\1/p' project.godot)         
+          echo "Extracted Version: $VERSION"
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+      - name: Publish Version
+        uses: ncipollo/release-action@v1
+        with:
+          allowUpdates: true
+          artifactErrorsFailBuild: true
+          artifacts: "build/windows, build/web, build/linux"
+          generateReleaseNotes: true
+          tag: "v${{ steps.get_version.outputs.version }}"
